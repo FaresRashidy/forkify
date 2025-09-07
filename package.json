@@ -25,6 +25,7 @@
     "core-js": "^3.45.1",
     "fraction.js": "^5.3.4",
     "fractional": "^1.0.0",
+    "fracty": "^1.0.12",
     "regenerator-runtime": "^0.14.1",
     "sass": "^1.92.0"
   }
