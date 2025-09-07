@@ -13,6 +13,8 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.15.4",
+    "@swc/core": "^1.13.5",
+    "@swc/helpers": "^0.5.17",
     "buffer": "^6.0.3",
     "events": "^3.3.0",
     "parcel": "^2.15.4",
