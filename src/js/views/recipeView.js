@@ -1,12 +1,12 @@
-import Fraction from 'fraction.js';
+import Fraction from "fraction.js";
 
-import icons from 'url:../../img/icons.svg';
-import View from './view.js';
+import icons from "../../img/icons.svg";
+import View from "./view.js";
 
 class RecipeView extends View {
-  _parentElement = document.querySelector('.recipe');
-  _errorMessage = 'We could not find that recipe. Please try another one!';
-  _successMessage = '';
+  _parentElement = document.querySelector(".recipe");
+  _errorMessage = "We could not find that recipe. Please try another one!";
+  _successMessage = "";
 
   _generateMarkup() {
     return `
@@ -56,7 +56,7 @@ class RecipeView extends View {
             </div>
           </div>
 
-          <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
+          <div class="recipe__user-generated ${this._data.key ? "" : "hidden"}">
             <svg>
               <use href="${icons}#icon-user"></use>
             </svg>
@@ -64,7 +64,7 @@ class RecipeView extends View {
           <button class="btn--round btn--bookmark">
             <svg class="">
               <use href="${icons}#icon-bookmark${
-      this._data.bookmarked ? '-fill' : ''
+      this._data.bookmarked ? "-fill" : ""
     }"></use>
             </svg>
           </button>
@@ -75,7 +75,7 @@ class RecipeView extends View {
         <div class="recipe__ingredients">
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
-            ${this._data.ingredients.map(this._createMarkupIngredient).join('')}
+            ${this._data.ingredients.map(this._createMarkupIngredient).join("")}
           </ul>
         </div>
 
@@ -111,7 +111,7 @@ class RecipeView extends View {
         <div class="recipe__quantity">${
           ingredient.quantity
             ? new Fraction(ingredient.quantity).toFraction()
-            : ''
+            : ""
           // ingredient.quantity
         }</div>
         <div class="recipe__description">
@@ -123,12 +123,14 @@ class RecipeView extends View {
   }
 
   addHandlerRender(handler) {
-    ['load', 'hashchange'].forEach(ev => window.addEventListener(ev, handler));
+    ["load", "hashchange"].forEach((ev) =>
+      window.addEventListener(ev, handler)
+    );
   }
 
   addHandlerUpdateServings(handler) {
-    this._parentElement.addEventListener('click', function (e) {
-      const btn = e.target.closest('.btn--update-servings');
+    this._parentElement.addEventListener("click", function (e) {
+      const btn = e.target.closest(".btn--update-servings");
       if (!btn) return;
 
       const updateTo = +btn.dataset.updateTo;
@@ -139,8 +141,8 @@ class RecipeView extends View {
   }
 
   addHandlerAddBookmark(handler) {
-    this._parentElement.addEventListener('click', function (e) {
-      const btn = e.target.closest('.btn--bookmark');
+    this._parentElement.addEventListener("click", function (e) {
+      const btn = e.target.closest(".btn--bookmark");
       if (!btn) return;
       handler();
     });
